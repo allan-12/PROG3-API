@@ -1,0 +1,65 @@
+openapi: 3.0.3
+info:
+  title: Revision API
+  version: 1.0.0
+  
+servers:
+  - url: https://PROG3-API.com
+
+paths:
+  /books/{id}:
+    get:
+      summary: Get all books
+      description: Return all books ordered by author ASC
+      operationId: getBooks
+      parameters:
+        - in: query
+          name: id
+          required: false
+          description: Filter the return books by id
+          schema:
+            type: string
+
+      responses:
+        200:
+          description: The returned books
+          content:
+            appliction/json:
+              schema:
+                type: object
+                properties:
+                  id: 
+                    type: string
+                  bookName:
+                      type: string
+                  Create:
+                      type: string
+                      format: date
+    
+
+    put:
+      summary: Create or update of a list of books
+      operationId: crupdateeBooks
+      requestBody:
+        content:
+            appliction/json:
+              schema:
+                type: object
+                properties:
+                  id: 
+                    type: string
+                  bookName:
+                      type: string
+
+      responses:
+        200:
+          description: The returned books
+          content:
+            appliction/json:
+              schema:
+                type: object
+                properties:
+                  id: 
+                    type: string
+                  bookName:
+                      type: string
